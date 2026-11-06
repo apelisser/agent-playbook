@@ -1,5 +1,5 @@
 ---
-description: Guardrails for destructive and sensitive operations.
+description: Restrições para operações destrutivas ou que envolvem dados sensíveis.
 alwaysApply: true
 ---
 

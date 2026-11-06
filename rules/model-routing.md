@@ -1,5 +1,5 @@
 ---
-description: Cost-aware model and reasoning-effort selection when the host exposes those controls.
+description: Seleção de modelo e reasoning effort pelo consumo esperado quando o ambiente oferece esses controles.
 alwaysApply: true
 ---
 

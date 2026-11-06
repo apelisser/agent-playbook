@@ -1,5 +1,5 @@
 ---
-description: Identifiers in English — files, code, git branches. No PT-BR names.
+description: Exige nomes em inglês para arquivos, código e branches git.
 alwaysApply: true
 ---
 

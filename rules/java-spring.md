@@ -1,5 +1,5 @@
 ---
-description: Default Java/Spring DDD persistence and transaction conventions. Project AGENTS.md wins.
+description: Convenções de persistência e transações Java/Spring DDD. O AGENTS.md do projeto prevalece.
 globs: "**/*.java"
 alwaysApply: false
 ---

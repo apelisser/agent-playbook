@@ -1,6 +1,6 @@
 ---
 name: saml-oidc-federation
-description: Diagnóstico de falhas de login SSO com Keycloak, Authentik, Azure AD B2C, Kong e CDN. Use when debugging SAML, OIDC, OAuth, cookies, redirect_uri, proxy headers, or SSO login failures.
+description: Diagnóstico de falhas de login SSO com Keycloak, Authentik, Azure AD B2C, Kong e CDN. Use ao depurar SAML, OIDC, OAuth, cookies, redirect_uri, headers de proxy ou falhas de federação.
 ---
 
 # Troubleshooting de federação SAML2/OIDC atrás de proxy/CDN

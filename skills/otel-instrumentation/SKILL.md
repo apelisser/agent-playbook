@@ -1,6 +1,6 @@
 ---
 name: otel-instrumentation
-description: Padrões de instrumentação OpenTelemetry em Spring Boot (Micrometer bridge ou agent + annotations) e Grafana LGTM. Use when adding traces, metrics, logs, OTLP exporters, OpenTelemetryAppender, or RabbitMQ observation.
+description: Padrões de instrumentação OpenTelemetry em Spring Boot (Micrometer bridge ou agent + annotations) e Grafana LGTM. Use ao adicionar traces, métricas, logs, exportadores OTLP, OpenTelemetryAppender ou observação de RabbitMQ.
 ---
 
 # OpenTelemetry em Spring Boot

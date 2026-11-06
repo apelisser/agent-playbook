@@ -1,6 +1,6 @@
 ---
 name: postgres-rls
-description: Padrões e antipadrões de Row-Level Security no PostgreSQL para isolamento multitenant. Use when working with RLS, tenant isolation, SET session GUCs, connection pools, or multi-tenant PostgreSQL policies.
+description: Padrões e antipadrões de Row-Level Security no PostgreSQL para isolamento multitenant. Use ao trabalhar com RLS, isolamento de tenants, GUCs de sessão, pools de conexão ou policies multitenant.
 ---
 
 # Row-Level Security para multitenancy
