@@ -65,6 +65,9 @@ Texto que o **usuário vê** pode ser PT-BR — só na camada de cópia de inter
 
 Se um artefato (prompt, plan) pedir um nome em PT, use o equivalente em inglês e não copie o PT para git/código.
 
+<!-- rules/model-routing.md -->
+Ao iniciar uma tarefa ou delegação, se houver controle de modelo ou reasoning effort para a execução seguinte, use a skill `cost-aware-model-router` para escolher a configuração de menor consumo esperado que preserve a qualidade verificável. Não afirme que a skill alterou o modelo da sessão atual sem confirmação do host.
+
 ## By file type
 
 ### When editing `**/*.java`
@@ -93,6 +96,7 @@ Se um artefato (prompt, plan) pedir um nome em PT, use o equivalente em inglês 
 Load a skill only when its description matches the task: read the file, then follow it. Paths are relative to the playbook root. The installer links that root at `~/.agent-playbook/`; without installation, the user must provide access to the source checkout.
 
 - `change-analysis` (skills/change-analysis/SKILL.md): Analisa problema, contexto e requisitos de uma mudança M ou L antes de editar código. Use depois da classificação e do discovery. Separa [F], [I], [R] e dúvidas. Não use para classe S.
+- `cost-aware-model-router` (skills/cost-aware-model-router/SKILL.md): Use when choosing a model or reasoning effort for a task or subagent, or deciding whether a failed attempt warrants a more capable configuration.
 - `ddd-conventions` (skills/ddd-conventions/SKILL.md): Convenções de nomenclatura e modelagem DDD (agregados, repositórios, bounded contexts). Use when designing aggregates, naming repositories, reviewing domain boundaries, or adding abstractions in Java/Spring DDD code.
 - `design-decision` (skills/design-decision/SKILL.md): Compara alternativas e decide se cabe ADR em mudança L ou em M com contrato, banco, segurança, irreversibilidade ou mais de um desenho plausível. Use depois da análise, antes da implementação. Não use para classe S.
 - `engineering-workflow` (skills/engineering-workflow/SKILL.md): Processo padrão para mudar código com evidência. Use ao implementar feature, bugfix, refatoração, mudança de API, banco, infra ou comportamento, e antes de commit ou PR. Classifica S/M/L, exige [F]/[R]/[I], e escolhe o fluxo proporcional ao risco.
