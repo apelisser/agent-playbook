@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Symlink the playbook into each AI tool's global config directory.
 #
-#   scripts/install.sh                 dry-run for every tool whose home dir exists
+#   scripts/install.sh                 read-only preview for every tool whose home dir exists
 #   scripts/install.sh --apply         do it
 #   scripts/install.sh --apply cursor claude
 #
@@ -100,6 +100,10 @@ install_claude() {
 install_codex() {
   link "$ROOT/dist/AGENTS.md" "$HOME/.codex/AGENTS.md"
   link_skills "$HOME/.agents/skills"
+  for agent in "$ROOT"/dist/codex/agents/*.toml; do
+    link "$agent" "$HOME/.codex/agents/$(basename "$agent")"
+  done
+  link "$ROOT/hooks/codex.rules" "$HOME/.codex/rules/agent-playbook.rules"
 }
 
 install_gemini() {
@@ -107,7 +111,12 @@ install_gemini() {
 }
 
 [ "$APPLY" -eq 1 ] || echo "dry-run: nada será alterado. Use --apply para aplicar."
-python3 "$ROOT/scripts/build.py"
+if [ "$APPLY" -eq 1 ]; then
+  python3 "$ROOT/scripts/build.py"
+fi
+if [ ${#TARGETS[@]} -gt 0 ]; then
+  link "$ROOT" "$HOME/.agent-playbook"
+fi
 
 for target in "${TARGETS[@]}"; do
   echo "[$target]"

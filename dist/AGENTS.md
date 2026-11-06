@@ -39,6 +39,11 @@ Merge para `main` com `--no-ff`: sempre commit de merge. Sem fast-forward.
 Skills: `ddd-conventions`, `jooq-persistence`, `postgres-rls`, `saml-oidc-federation`, `otel-instrumentation`, `frontend-react`.
 Subagents: `java-architect`, `persistence-specialist`, `iam-federation-specialist`, `k8s-istio-specialist`, `observability-engineer`, `security-reviewer`, `code-reviewer`, `frontend-react-specialist`.
 
+<!-- rules/command-safety.md -->
+Antes de executar comando que apaga dados, reescreve histórico, muda infraestrutura ou envia credenciais, confira o alvo real, o escopo e a reversibilidade. Use prévia ou leitura quando disponível (`git diff`, plano de migração, dry run). Não coloque segredo no comando, argumento, log ou resposta.
+
+Se o pedido já autoriza a operação e o alvo é inequívoco, prossiga com o menor escopo necessário. Se o alvo, a autorização ou uma consequência irreversível não estiverem claros, apresente o efeito concreto e peça decisão antes de executar. Não use variante de comando, script ou ferramenta alternativa para contornar um bloqueio de segurança.
+
 <!-- rules/english-names.md -->
 ### Nomes em inglês
 
@@ -85,11 +90,11 @@ Se um artefato (prompt, plan) pedir um nome em PT, use o equivalente em inglês 
 
 ## Skills
 
-Load a skill only when its description matches the task: read the file, then follow it. Paths are relative to the playbook root.
+Load a skill only when its description matches the task: read the file, then follow it. Paths are relative to the playbook root. The installer links that root at `~/.agent-playbook/`; without installation, the user must provide access to the source checkout.
 
 - `change-analysis` (skills/change-analysis/SKILL.md): Analisa problema, contexto e requisitos de uma mudança M ou L antes de editar código. Use depois da classificação e do discovery. Separa [F], [I], [R] e dúvidas. Não use para classe S.
 - `ddd-conventions` (skills/ddd-conventions/SKILL.md): Convenções de nomenclatura e modelagem DDD (agregados, repositórios, bounded contexts). Use when designing aggregates, naming repositories, reviewing domain boundaries, or adding abstractions in Java/Spring DDD code.
-- `design-decision` (skills/design-decision/SKILL.md): Compara alternativas e decide se cabe ADR em mudança L ou em M com contrato, banco, segurança, irreversibilidade ou mais de um desenho plausível. Pare para decisão humana antes de implementar. Não use para classe S.
+- `design-decision` (skills/design-decision/SKILL.md): Compara alternativas e decide se cabe ADR em mudança L ou em M com contrato, banco, segurança, irreversibilidade ou mais de um desenho plausível. Use depois da análise, antes da implementação. Não use para classe S.
 - `engineering-workflow` (skills/engineering-workflow/SKILL.md): Processo padrão para mudar código com evidência. Use ao implementar feature, bugfix, refatoração, mudança de API, banco, infra ou comportamento, e antes de commit ou PR. Classifica S/M/L, exige [F]/[R]/[I], e escolhe o fluxo proporcional ao risco.
 - `frontend-react` (skills/frontend-react/SKILL.md): Production React/TypeScript patterns for state, components, render performance, a11y, Vite/Next tooling, and API integration. Use when implementing or reviewing React components, hooks, Vite/Next config, or UI data fetching.
 - `implement-and-verify` (skills/implement-and-verify/SKILL.md): Implementa a mudança já analisada e executa os testes e gates do próprio repositório. Use em classe M ou L depois da análise e, se houve design-decision, depois da decisão aceita. Não commita.
@@ -104,7 +109,7 @@ Load a skill only when its description matches the task: read the file, then fol
 
 ## Subagents
 
-If the tool supports subagents, delegate to these. Otherwise read the file and apply it as a review lens.
+If the tool supports subagents, delegate to these when useful. Otherwise read the file from the playbook root and apply it as a review lens.
 
 - `code-reviewer` (agents/code-reviewer.md): Reviews a diff for bugs, missing edge cases, and consistency with project conventions. Use proactively before considering a task done, or when the user asks for a code review.
 - `frontend-react-specialist` (agents/frontend-react-specialist.md): Expert in production React/TypeScript — state, render performance, a11y, and API integration. Use proactively when implementing or reviewing React components, Vite/Next config, or UI data fetching.

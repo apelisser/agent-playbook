@@ -1,6 +1,6 @@
 ---
 name: design-decision
-description: Compara alternativas e decide se cabe ADR em mudança L ou em M com contrato, banco, segurança, irreversibilidade ou mais de um desenho plausível. Pare para decisão humana antes de implementar. Não use para classe S.
+description: Compara alternativas e decide se cabe ADR em mudança L ou em M com contrato, banco, segurança, irreversibilidade ou mais de um desenho plausível. Use depois da análise, antes da implementação. Não use para classe S.
 ---
 
 # Design decision
@@ -17,6 +17,6 @@ Crie ADR só se a decisão for difícil de reverter: arquitetura, tecnologia nov
 
 Caminho: adr_dir de repository.md, ou docs/engineering/adr/AAAA-MM-DD-slug.md. Se o arquivo do ADR já existir, pare e pergunte. Não grave por cima.
 
-O ADR fica status proposto até o usuário aceitar. Conteúdo: Contexto [F], Restrições, Premissas [I] e como validar, Alternativas, Decisão D1 pendente, Consequências. Até a aceitação, não implemente.
+O ADR registra status proposto quando a escolha depende do usuário, ou aceito quando o pedido e as evidências já a determinam. Conteúdo: Contexto [F], Restrições, Premissas [I] e como validar, Alternativas, Decisão D1, Consequências.
 
-Pare e mostre [R], trade-off e a pergunta objetiva. Grave no change record D1 com status aceita, base R1 e quem: usuário, só depois da aceitação.
+Se houver escolha material sem critério no pedido ou no repositório, mostre [R], trade-off e uma pergunta objetiva antes de implementar. Caso contrário, registre D1 com a base R1 e a fonte da decisão e siga.

@@ -19,7 +19,7 @@ Classifique afirmação que influencie requisito, causa, design, implementação
 
 Prioridade: obter [F]; se der para validar no repo, no git, no build ou numa execução, valide antes de inferir. Se depender de intenção de negócio ou de preferência, pergunte. [I] só quando não der para validar nem perguntar a tempo, e nunca no lugar de um [F].
 
-[I] cuja validação depende de decisão humana bloqueia implementação. [I] que dá para fechar lendo o repositório ou executando um teste não bloqueia: converta em [F] antes de implementar.
+[I] sobre comportamento desejado que não se pode inferir do pedido nem do repositório exige esclarecimento. [I] verificável no repositório ou por teste deve ser validada antes de orientar a implementação.
 
 [R] apoia-se em [F]. Se também usar [I], declare isso e a confiança (baixa, média, alta). [R] não é [F]. [I] não vira [F] sem validação.
 
@@ -48,8 +48,8 @@ Carregue uma skill por vez. Não carregue as outras por completude.
 S, inclusive bugfix localizado: só esta skill.
 M ou L sem docs/engineering/repository.md, ou cache que não cobre o módulo, ou build mudou desde git_head: repository-discovery.
 M ou L, antes de editar: change-analysis.
-L, ou M com mais de um desenho, ou flag de contrato, banco, segurança ou irreversibilidade: design-decision e pare no gate humano.
-M que preserva comportamento e já tem teste [F] desse comportamento, ou L com decisão aceita: implement-and-verify.
+L, ou M com mais de um desenho, ou flag de contrato, banco, segurança ou irreversibilidade: design-decision. Peça decisão humana só quando as alternativas dependerem de preferência ou requisito que o pedido e o repositório não resolvem.
+M ou L com análise e decisão suficiente: implement-and-verify.
 Depois da implementação: review-and-record.
 UI alterada: web-verification dentro da validação.
 
@@ -66,17 +66,11 @@ S não cria arquivo em docs/.
 
 ## Gates humanos — pare e pergunte
 
-- Dois desenhos razoáveis e a escolha não está escrita no repositório.
-- Mudança de contrato público.
-- Migração destrutiva ou irreversível.
-- Dependência nova de runtime.
-- Controle de segurança, autenticação ou autorização.
-- Infraestrutura.
-- Comportamento desejado que não está no código nem no pedido.
-- Commit, push ou merge.
-- O mesmo gate falhou duas vezes.
+- Comportamento desejado ou escolha entre alternativas com impacto material que o pedido e o repositório não resolvem.
+- Ação destrutiva, irreversível ou externa cujo alvo e autorização não estejam claros.
+- O mesmo gate falhou duas vezes sem nova hipótese verificável.
 
-O pedido do usuário autoriza implementar classe S. Mudança de comportamento em M para antes do código de produção. Mostre a [R] e espere aceitação. Caminho único só autoriza seguir sem essa pausa quando a mudança preserva comportamento e já existe teste que cobre esse comportamento, registrado como [F]. Flags de contrato, banco, segurança ou irreversibilidade continuam gate mesmo nesse caso. Classe L: mostre [R] e espere aceitação antes de editar código de produção.
+O pedido autoriza implementar a mudança solicitada em qualquer classe. Em M ou L, registre a [R] e siga quando o requisito e o alvo estão claros; não transforme a classe ou uma flag em pedido automático de permissão. Antes de operação destrutiva ou irreversível, confirme o alvo e o efeito concreto. Commit, push e merge seguem a autorização dada no pedido e as regras do projeto.
 
 ## Recuperação
 

@@ -7,6 +7,7 @@ pasted system prompts). Tools with native rules/skills (Cursor) use the sources.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -72,7 +73,7 @@ def main() -> int:
         "",
         "## Skills",
         "",
-        "Load a skill only when its description matches the task: read the file, then follow it. Paths are relative to the playbook root.",
+        "Load a skill only when its description matches the task: read the file, then follow it. Paths are relative to the playbook root. The installer links that root at `~/.agent-playbook/`; without installation, the user must provide access to the source checkout.",
         "",
     ]
     for skill in sorted((ROOT / "skills").glob("*/SKILL.md")):
@@ -83,7 +84,7 @@ def main() -> int:
         "",
         "## Subagents",
         "",
-        "If the tool supports subagents, delegate to these. Otherwise read the file and apply it as a review lens.",
+        "If the tool supports subagents, delegate to these when useful. Otherwise read the file from the playbook root and apply it as a review lens.",
         "",
     ]
     for agent in sorted((ROOT / "agents").glob("*.md")):
@@ -94,6 +95,24 @@ def main() -> int:
     dist = ROOT / "dist"
     dist.mkdir(exist_ok=True)
     (dist / "AGENTS.md").write_text(out)
+    codex_agents = dist / "codex" / "agents"
+    codex_agents.mkdir(parents=True, exist_ok=True)
+    source_agents = sorted((ROOT / "agents").glob("*.md"))
+    expected = {f"{agent.stem}.toml" for agent in source_agents}
+    for stale in codex_agents.glob("*.toml"):
+        if stale.name not in expected:
+            stale.unlink()
+    for agent in source_agents:
+        meta, body = split_frontmatter(agent.read_text())
+        content = "\n".join(
+            f"{key} = {json.dumps(value, ensure_ascii=False)}"
+            for key, value in (
+                ("name", meta["name"]),
+                ("description", meta["description"]),
+                ("developer_instructions", body.strip()),
+            )
+        ) + "\n"
+        (codex_agents / f"{agent.stem}.toml").write_text(content)
     print(f"wrote {dist / 'AGENTS.md'} ({len(out.splitlines())} lines)")
     return 0
 
