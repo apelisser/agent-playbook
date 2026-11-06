@@ -1,6 +1,6 @@
 ---
 name: cost-aware-model-router
-description: Use when choosing a model or reasoning effort for a task or subagent, or deciding whether a failed attempt warrants a more capable configuration.
+description: Use ao escolher modelo ou reasoning effort para uma tarefa ou subagente, ou ao decidir se uma falha justifica uma configuração mais capaz.
 ---
 
 # Cost-aware model router

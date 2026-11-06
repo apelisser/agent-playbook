@@ -7,7 +7,7 @@ Antes de commitar neste repositório, siga [`commit-conventions.md`](commit-conv
 ## Regras de edição
 
 - Conteúdo neutro de ferramenta. Não escreva caminho, nome de tool ou recurso exclusivo de um produto (`~/.cursor/...`, `CallDynamicTool`, `Task`) em `rules/`, `skills/` ou `agents/`. Quando o comportamento depende de capacidade, descreva a capacidade ("se houver browser", "se a ferramenta suportar subagentes").
-- Nomes de arquivo, pasta, skill e subagente em inglês, kebab-case. O texto pode ser PT-BR.
+- Nomes de arquivos, diretórios, skills e subagentes em inglês, kebab-case, exceto nomes exigidos por ferramentas ou linguagens (como `SKILL.md` e arquivos Python). Descrições de regras, skills e subagentes em PT-BR; preserve termos técnicos, APIs e identificadores no original. O restante do texto pode ser PT-BR.
 - Skill: `skills/<name>/SKILL.md`, frontmatter só com `name` (igual ao nome da pasta) e `description` (o que faz + quando usar). Arquivo auxiliar fica ao lado e é citado pelo `SKILL.md`.
 - Regra: `rules/<name>.md` com `alwaysApply: true`, ou `alwaysApply: false` + `globs`. Curta. Procedimento longo vira skill.
 - Subagente: `agents/<name>.md` com `name` e `description`. O corpo é o system prompt.

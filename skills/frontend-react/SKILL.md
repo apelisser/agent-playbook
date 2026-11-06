@@ -1,6 +1,6 @@
 ---
 name: frontend-react
-description: Production React/TypeScript patterns for state, components, render performance, a11y, Vite/Next tooling, and API integration. Use when implementing or reviewing React components, hooks, Vite/Next config, or UI data fetching.
+description: Padrões de React/TypeScript em produção para estado, componentes, desempenho, acessibilidade, Vite/Next e integração com API. Use ao implementar ou revisar componentes, hooks, configuração Vite/Next ou busca de dados na UI.
 ---
 
 # React / TypeScript (produção)

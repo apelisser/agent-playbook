@@ -1,6 +1,6 @@
 ---
 name: ddd-conventions
-description: Convenções de nomenclatura e modelagem DDD (agregados, repositórios, bounded contexts). Use when designing aggregates, naming repositories, reviewing domain boundaries, or adding abstractions in Java/Spring DDD code.
+description: Convenções de nomenclatura e modelagem DDD (agregados, repositórios, bounded contexts). Use ao desenhar agregados, nomear repositórios, revisar limites de domínio ou criar abstrações em código Java/Spring DDD.
 ---
 
 # Convenções DDD

@@ -1,6 +1,6 @@
 ---
 name: jooq-persistence
-description: Quando usar Spring Data JDBC vs jOOQ, e como estruturar o código para não misturar as duas responsabilidades. Use when adding repositories, queries, aggregates, reports, or choosing JDBC versus jOOQ.
+description: Critérios para usar Spring Data JDBC ou jOOQ e separar suas responsabilidades. Use ao criar repositórios, consultas, agregados ou relatórios, ou ao escolher entre JDBC e jOOQ.
 ---
 
 # Persistência híbrida: Spring Data JDBC + jOOQ

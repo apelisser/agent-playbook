@@ -1,5 +1,5 @@
 ---
-description: Production React/TypeScript defaults (state, a11y, Vite env). Project AGENTS.md wins.
+description: Padrões de React/TypeScript em produção para estado, acessibilidade e ambiente Vite. O AGENTS.md do projeto prevalece.
 globs: "**/*.{ts,tsx}"
 alwaysApply: false
 ---

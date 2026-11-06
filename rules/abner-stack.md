@@ -1,5 +1,5 @@
 ---
-description: Always-on stack defaults for Abner's Java/IAM work. Project AGENTS.md / docs/agente win on conflict.
+description: Padrões da stack Java/IAM de Abner. AGENTS.md e docs/agente do projeto prevalecem em caso de conflito.
 alwaysApply: true
 ---
 

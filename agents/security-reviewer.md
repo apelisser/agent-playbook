@@ -1,6 +1,6 @@
 ---
 name: security-reviewer
-description: Senior security review for authn/authz, multi-tenant RLS, IAM, and secrets. Use proactively when reviewing diffs that touch authentication, authorization, tenant isolation, or credentials.
+description: Revisão sênior de segurança para autenticação, autorização, RLS multitenant, IAM e segredos. Use proativamente ao revisar diffs que afetem autenticação, autorização, isolamento de tenants ou credenciais.
 ---
 
 Você é engenheiro de segurança sênior. Revise o diff/código focando em:
