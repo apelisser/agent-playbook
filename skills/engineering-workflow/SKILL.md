@@ -70,7 +70,7 @@ S não cria arquivo em docs/.
 - Ação destrutiva, irreversível ou externa cujo alvo e autorização não estejam claros.
 - O mesmo gate falhou duas vezes sem nova hipótese verificável.
 
-O pedido autoriza implementar a mudança solicitada em qualquer classe. Em M ou L, registre a [R] e siga quando o requisito e o alvo estão claros; não transforme a classe ou uma flag em pedido automático de permissão. Antes de operação destrutiva ou irreversível, confirme o alvo e o efeito concreto. Commit, push e merge seguem a autorização dada no pedido e as regras do projeto.
+Pedido explícito de implementação autoriza implementar a mudança em qualquer classe. Pergunta de viabilidade ou recomendação autoriza análise e resposta; pedido de plano autoriza somente planejar. Para implementar ou executar o plano, aguarde pedido explícito ou aprovação inequívoca de uma proposta concreta. Em M ou L, registre a [R] e siga quando o requisito e o alvo estão claros; não transforme a classe ou uma flag em pedido automático de permissão. Antes de operação destrutiva ou irreversível, confirme o alvo e o efeito concreto. Commit, push e merge seguem a autorização dada no pedido e as regras do projeto.
 
 ## Recuperação
 
