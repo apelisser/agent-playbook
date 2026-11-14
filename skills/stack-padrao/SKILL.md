@@ -1,6 +1,6 @@
 ---
 name: stack-padrao
-description: Stack habitual de Abner em serviços Java. Use quando o repositório for Java/Spring Boot, PostgreSQL, IAM (Keycloak, Authentik, Azure AD B2C, Kong), Kubernetes/Istio ou OpenTelemetry, ou quando ele pedir essa stack. Não use em repositório de outra stack. Se existir AGENTS.md ou docs/agente/, essas fontes vencem esta skill.
+description: Padrões para serviços Java com Spring Boot, PostgreSQL, IAM, Kubernetes/Istio ou OpenTelemetry. Use quando o repositório adotar essa stack ou quando o usuário a pedir. Não use em repositório de outra stack. Se existir AGENTS.md ou docs/agente/, essas fontes vencem esta skill.
 ---
 
 # Stack padrão

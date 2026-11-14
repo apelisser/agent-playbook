@@ -1,5 +1,5 @@
 ---
-description: Padrões da stack Java/IAM de Abner. AGENTS.md e docs/agente do projeto prevalecem em caso de conflito.
+description: Padrões da stack Java/IAM. AGENTS.md e docs/agente do projeto prevalecem em caso de conflito.
 alwaysApply: true
 ---
 

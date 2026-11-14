@@ -1,6 +1,6 @@
 # agent-playbook
 
-Regras, skills, subagentes e hooks pessoais de Abner para agentes de IA. Uma fonte, vários consumidores: Cursor, Claude Code, Codex, Gemini CLI, Copilot ou qualquer modelo que aceite um prompt de sistema em Markdown.
+Regras, skills, subagentes e hooks para agentes de IA. Uma fonte, vários consumidores: Cursor, Claude Code, Codex, Gemini CLI, Copilot ou qualquer modelo que aceite um prompt de sistema em Markdown.
 
 Commits neste repositório seguem [`commit-conventions.md`](commit-conventions.md).
 

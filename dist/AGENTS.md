@@ -7,7 +7,7 @@
 ## Always
 
 <!-- rules/01-identity.md -->
-O usuário se chama Abner, engenheiro de software. Prefere trabalhar direto no código: criar, depurar e iterar.
+O usuário prefere trabalhar direto no código: criar, depurar e iterar.
 
 Responda em português quando ele escrever em português. Termos de código, APIs e comandos ficam no original.
 
@@ -17,10 +17,10 @@ Não abra resposta com concordância automática ("Você está certo!", "Ótima 
 
 Afirme o ponto. Evite negação contrastiva desnecessária ("X, não Y") quando ele não perguntou sobre a alternativa.
 
-Quando fornecer um texto para Abner copiar, delimite o conteúdo copiável com `--start--` em uma linha antes do texto e `--end--` em uma linha depois. Deixe explicações fora desses delimitadores.
+Quando fornecer um texto para o usuário copiar, delimite o conteúdo copiável com `--start--` em uma linha antes do texto e `--end--` em uma linha depois. Deixe explicações fora desses delimitadores.
 
 <!-- rules/02-stack-and-workflow.md -->
-A stack Java/Spring, PostgreSQL, IAM, Kubernetes e OpenTelemetry não é padrão de todo repositório. Use a skill stack-padrao só quando o repositório for esse stack ou quando Abner pedir. Se o repo tiver AGENTS.md ou docs/agente/, essas fontes vencem a skill.
+A stack Java/Spring, PostgreSQL, IAM, Kubernetes e OpenTelemetry não é padrão de todo repositório. Use a skill stack-padrao só quando o repositório for esse stack ou quando o usuário pedir. Se o repo tiver AGENTS.md ou docs/agente/, essas fontes vencem a skill.
 
 Mudança de código segue a skill engineering-workflow (classe S/M/L, evidência [F]/[R]/[I]). Ela escolhe as outras skills do fluxo.
 
@@ -34,14 +34,6 @@ Não invente conteúdo de skill, subagente ou regra que não esteja disponível.
 Um commit por escopo lógico. Mensagem no imperativo. Inclua o ticket quando houver.
 
 Merge para `main` com `--no-ff`: sempre commit de merge. Sem fast-forward.
-
-<!-- rules/abner-stack.md -->
-### Precedência
-
-`AGENTS.md` e `docs/agente/` do repositório atual vencem estas regras e as skills pessoais.
-
-Skills: `ddd-conventions`, `jooq-persistence`, `postgres-rls`, `saml-oidc-federation`, `otel-instrumentation`, `frontend-react`.
-Subagents: `java-architect`, `persistence-specialist`, `iam-federation-specialist`, `k8s-istio-specialist`, `observability-engineer`, `security-reviewer`, `code-reviewer`, `frontend-react-specialist`.
 
 <!-- rules/command-safety.md -->
 Antes de executar comando que apaga dados, reescreve histórico, muda infraestrutura ou envia credenciais, confira o alvo real, o escopo e a reversibilidade. Use prévia ou leitura quando disponível (`git diff`, plano de migração, dry run). Não coloque segredo no comando, argumento, log ou resposta.
@@ -71,6 +63,14 @@ Se um artefato (prompt, plan) pedir um nome em PT, use o equivalente em inglês 
 
 <!-- rules/model-routing.md -->
 Ao iniciar uma tarefa ou delegação, se houver controle de modelo ou reasoning effort para a execução seguinte, use a skill `cost-aware-model-router` para escolher a configuração de menor consumo esperado que preserve a qualidade verificável. Não afirme que a skill alterou o modelo da sessão atual sem confirmação do host.
+
+<!-- rules/stack-conventions.md -->
+### Precedência
+
+`AGENTS.md` e `docs/agente/` do repositório atual vencem estas regras e as skills pessoais.
+
+Skills: `ddd-conventions`, `jooq-persistence`, `postgres-rls`, `saml-oidc-federation`, `otel-instrumentation`, `frontend-react`.
+Subagents: `java-architect`, `persistence-specialist`, `iam-federation-specialist`, `k8s-istio-specialist`, `observability-engineer`, `security-reviewer`, `code-reviewer`, `frontend-react-specialist`.
 
 ## By file type
 
@@ -112,7 +112,7 @@ Load a skill only when its description matches the task: read the file, then fol
 - `repository-discovery` (skills/repository-discovery/SKILL.md): Levanta convenções e comandos do repositório e grava docs/engineering/repository.md. Use em mudança M ou L quando esse arquivo não existe, não cobre o módulo afetado, ou o build mudou desde git_head. Não use para correção classe S.
 - `review-and-record` (skills/review-and-record/SKILL.md): Revisa o diff contra requisito, testes e docs, atualiza documentação só se ela mentir, e prepara change record, commit e PR. Use depois de implement-and-verify em mudança M ou L. Não commita sem pedido explícito.
 - `saml-oidc-federation` (skills/saml-oidc-federation/SKILL.md): Diagnóstico de falhas de login SSO com Keycloak, Authentik, Azure AD B2C, Kong e CDN. Use ao depurar SAML, OIDC, OAuth, cookies, redirect_uri, headers de proxy ou falhas de federação.
-- `stack-padrao` (skills/stack-padrao/SKILL.md): Stack habitual de Abner em serviços Java. Use quando o repositório for Java/Spring Boot, PostgreSQL, IAM (Keycloak, Authentik, Azure AD B2C, Kong), Kubernetes/Istio ou OpenTelemetry, ou quando ele pedir essa stack. Não use em repositório de outra stack. Se existir AGENTS.md ou docs/agente/, essas fontes vencem esta skill.
+- `stack-padrao` (skills/stack-padrao/SKILL.md): Padrões para serviços Java com Spring Boot, PostgreSQL, IAM, Kubernetes/Istio ou OpenTelemetry. Use quando o repositório adotar essa stack ou quando o usuário a pedir. Não use em repositório de outra stack. Se existir AGENTS.md ou docs/agente/, essas fontes vencem esta skill.
 - `web-verification` (skills/web-verification/SKILL.md): Use quando implementar ou corrigir qualquer coisa numa aplicação web (UI, layout, estilo, rota, estado de cliente ou dado renderizado). Verificar o fluxo no browser antes de declarar a tarefa pronta.
 
 ## Subagents

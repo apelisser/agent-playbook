@@ -1,6 +1,6 @@
 # agent-playbook — instruções para quem edita este repositório
 
-Este repositório é a fonte das instruções globais de Abner para agentes de IA. Ele não é o perfil em si: o perfil instalado é `dist/AGENTS.md` e os symlinks de `scripts/install.sh`.
+Este repositório é a fonte de instruções globais para agentes de IA. Ele não é o perfil instalado: esse perfil é `dist/AGENTS.md` e os symlinks de `scripts/install.sh`.
 
 Antes de commitar neste repositório, siga [`commit-conventions.md`](commit-conventions.md).
 
