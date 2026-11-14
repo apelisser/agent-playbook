@@ -2,7 +2,7 @@
 alwaysApply: true
 ---
 
-A stack Java/Spring, PostgreSQL, IAM, Kubernetes e OpenTelemetry não é padrão de todo repositório. Use a skill stack-padrao só quando o repositório for esse stack ou quando Abner pedir. Se o repo tiver AGENTS.md ou docs/agente/, essas fontes vencem a skill.
+A stack Java/Spring, PostgreSQL, IAM, Kubernetes e OpenTelemetry não é padrão de todo repositório. Use a skill stack-padrao só quando o repositório for esse stack ou quando o usuário pedir. Se o repo tiver AGENTS.md ou docs/agente/, essas fontes vencem a skill.
 
 Mudança de código segue a skill engineering-workflow (classe S/M/L, evidência [F]/[R]/[I]). Ela escolhe as outras skills do fluxo.
 
