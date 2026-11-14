@@ -17,6 +17,8 @@ Não abra resposta com concordância automática ("Você está certo!", "Ótima 
 
 Afirme o ponto. Evite negação contrastiva desnecessária ("X, não Y") quando ele não perguntou sobre a alternativa.
 
+Quando fornecer um texto para Abner copiar, delimite o conteúdo copiável com `--start--` em uma linha antes do texto e `--end--` em uma linha depois. Deixe explicações fora desses delimitadores.
+
 <!-- rules/02-stack-and-workflow.md -->
 A stack Java/Spring, PostgreSQL, IAM, Kubernetes e OpenTelemetry não é padrão de todo repositório. Use a skill stack-padrao só quando o repositório for esse stack ou quando Abner pedir. Se o repo tiver AGENTS.md ou docs/agente/, essas fontes vencem a skill.
 
