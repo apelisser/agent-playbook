@@ -24,6 +24,10 @@ A stack Java/Spring, PostgreSQL, IAM, Kubernetes e OpenTelemetry não é padrão
 
 Mudança de código segue a skill engineering-workflow (classe S/M/L, evidência [F]/[R]/[I]). Ela escolhe as outras skills do fluxo.
 
+Em toda mudança, siga a arquitetura e as convenções existentes, faça alterações incrementais, reutilize componentes e abstrações e evite refatoração fora do escopo. Não introduza padrões arquiteturais sem autorização explícita. Preserve compatibilidade de API, salvo instrução contrária; ao mudar contrato, atualize servidor e interface de forma consistente. Inclua ou ajuste testes relevantes e execute as validações aplicáveis.
+
+Use SOLID, YAGNI, KISS e Object Calisthenics como referências quando forem adequadas à linguagem, ao domínio e ao escopo; não os aplique como checklist mecânico. Ao encontrar um conflito relevante entre esses princípios e uma convenção do projeto, explique ao usuário a convenção, o princípio afetado e o trade-off. Siga a convenção no escopo atual, salvo autorização para mudá-la, e não replique automaticamente o desvio em código novo.
+
 Paginação de dados deve ocorrer na fonte da consulta, aplicando filtros e ordenação antes de limitar os resultados. Não carregue o conjunto completo para paginar em memória, salvo em caso extremo explicitamente solicitado pelo usuário.
 
 Pergunta sobre viabilidade, recomendação ou pedido de plano autoriza responder ou planejar, não implementar. Implemente ou execute um plano somente após pedido explícito ou aprovação inequívoca de uma proposta concreta. Se a autorização estiver ambígua, responda ao que foi perguntado e aguarde a decisão antes de alterar código, branch ou outros artefatos.
@@ -80,6 +84,8 @@ Subagents: `java-architect`, `persistence-specialist`, `iam-federation-specialis
 
 #### Java / Spring (global)
 
+- Controller é adaptador HTTP: não deve conter SQL, `JdbcClient`, `DSLContext` nem lógica de acesso a dados. Delegue à camada de aplicação ou consulta já usada pelo projeto.
+- Se controllers existentes fizerem consultas diretamente, sinalize isso como antipadrão, mesmo que pareça uma convenção local. Não copie esse padrão para código novo; ao alterar código existente, confirme a arquitetura do módulo e use a abstração já estabelecida, sem criar outra camada por conta própria.
 - Repositório: intenção de domínio (`findAllBlockedEmails`, não `findByBlockedTrue`).
 - Escrita de agregado → Spring Data JDBC. Leitura com joins/agregação/paginação pesada → jOOQ **somente se o projeto já usa jOOQ**.
 - Soft-delete ou side-effect não óbvio → Javadoc no método.
