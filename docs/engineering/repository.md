@@ -1,7 +1,7 @@
 # Repository discovery
 
-- Updated: 2026-11-06
-- Git HEAD: `eff03a1cbcff89ec87381c85719582176a962c42`
+- Updated: 2026-11-16
+- Git HEAD: `0b35d5f` (base of `docs/product-decision-guardrails`)
 
 ## Build
 
